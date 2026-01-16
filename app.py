@@ -2,7 +2,7 @@
 # a way to improve forms with better security, built in validators etc.
 # https://flask-wtf.readthedocs.io/en/1.2.x/
 
-# pip install flask-wtforms
+# pip install Flask-WTF
 
 
 from flask import Flask, redirect, render_template, url_for
