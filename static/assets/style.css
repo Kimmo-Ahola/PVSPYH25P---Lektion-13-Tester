@@ -308,6 +308,11 @@ footer p{
     flex-direction: row;
     gap: 1rem;
   }
+
+  form{
+    width: clamp(300px, 80%, 600px);
+    margin: 0 auto;
+  }
 }
 
 @media (min-width: 768px) {

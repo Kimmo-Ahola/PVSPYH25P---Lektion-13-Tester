@@ -4,17 +4,141 @@
 <div class="container text-primary">
     <h1>Contact Form</h1>
     
-    <form method="GET">
-        <input type="text" name="name" placeholder="Your name, GET FORM" required>
-        <textarea name="message" placeholder="Your message"></textarea>
-        <button type="submit">Send</button>
+    <form class="form-light" method="GET">
+        <h3>Form name</h3>
+        <span>
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" placeholder="Your name, GET FORM" required>
+        </span>
+        <span>
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your message"></textarea>
+        </span>
+        <button class="btn btn-primary" type="submit">Send</button>
     </form>
     
-    <form method="POST">
-        <input type="text" name="name" placeholder="Your name, POST FORM" required>
-        <textarea name="message" placeholder="Your message"></textarea>
-        <button type="submit">Send</button>
+    <form class="form-light" method="POST">
+        <span>
+            <label for="">Name</label>
+            <input type="text" name="" placeholder="Your name, POST FORM" required>
+        </span>
+        <span>
+            <label for="">Message</label>
+            <textarea name="message" placeholder="Your message"></textarea>
+        </span>
+        <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+
+    <form class="form-dark" method="GET">
+        <h3>Form name</h3>
+        <span>
+            <label for="">Name</label>
+            <input type="text" name="" placeholder="Your name, GET FORM" required>
+        </span>
+        <span>
+            <label for="">Message</label>
+            <textarea name="message" placeholder="Your message"></textarea>
+        </span>
+        <button class="btn btn-primary" type="submit">Send</button>
+    </form>
+    
+    <form class="form-dark" method="POST">
+        <span>
+            <label for="">Name</label>
+            <input type="text" name="" placeholder="Your name, POST FORM" required>
+        </span>
+        <span>
+            <label for="">Message</label>
+            <textarea name="message" placeholder="Your message"></textarea>
+        </span>
+        <button class="btn btn-primary" type="submit">Send</button>
     </form>
 </div>
 
+<style>
+    form{
+        margin-bottom: 2rem;
+        border-radius: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem 0;
+    }
+
+    form h3{
+        text-align: center;
+    }
+
+    form > *{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    form > span {
+        display: flex;
+        flex-direction: column;
+        gap: 0.15rem;
+    }
+
+    form input, form textarea{
+        border-radius: 8px;
+        height: 3rem;
+        padding: 0.75rem;
+    }
+
+    form textarea{
+        resize: vertical;
+    }
+
+    form input:focus,
+    form input:active, 
+    form textarea:focus,
+    form textarea:active{
+        outline: none;
+    }
+
+    .form-light{
+        background-color: white;
+    }
+
+    .form-light input, .form-light  textarea{
+        border: 1px solid black;
+    }
+
+    .form-light label, .form-light h3{
+        color: black;
+    }
+
+    .form-dark{
+        background-color: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: rgba(255, 255, 255, 0.85);
+    }
+
+    .form-dark input,
+    .form-dark textarea {
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.05);
+        color: white;
+    }
+
+    .form-dark input:focus,
+    .form-dark input:active,
+    .form-dark textarea:focus,
+    .form-dark textarea:active{
+        outline: 1px solid #4a6283;
+        box-shadow: 0 0 8px 3px #4a628360;
+    }
+
+    .form-light button:last-child,
+    .form-dark button:last-child {
+        margin-top: 1rem;
+    }
+
+    /* Add this to media query 576px */
+    /* form{
+    width: clamp(300px, 80%, 600px);
+    margin: 0 auto;
+  }*/
+</style>
 {% endblock %}
