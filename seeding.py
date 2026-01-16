@@ -1,3 +1,4 @@
+from decimal import Decimal
 import random
 from faker import Faker
 
@@ -12,7 +13,7 @@ def seed_database(db):
         max_amount = 10**5  # 10^5
         users: list[User] = []
         fake = Faker("sv_SE")
-        for _ in range(5):
+        for _ in range(10):
             new_user = User(
                 name=fake.name(),
                 email=fake.unique.email(),
@@ -20,10 +21,15 @@ def seed_database(db):
                 city=fake.city(),
                 date_of_birth=fake.date_of_birth(),
                 accounts=[
-                    Account(balance=random.randrange(min_amount, max_amount)),
-                    Account(balance=random.randrange(min_amount, max_amount)),
+                    Account(balance=Decimal(random.randrange(min_amount, max_amount))),
+                    Account(balance=Decimal(random.randrange(min_amount, max_amount))),
                 ],
             )
+
+            if random.random() > 0.5:
+                new_user.telephone = fake.phone_number()
+                new_user.secondary_address = fake.address()
+                new_user.national_id = fake.ssn()
 
             users.append(new_user)
         db.session.add_all(users)
