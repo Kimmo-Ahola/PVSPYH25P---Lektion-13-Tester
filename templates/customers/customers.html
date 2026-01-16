@@ -3,33 +3,31 @@
 {% block content %}
 
 <div class="container">
-    <div class="table-shell">
-        <div class="table-scroll">
-            <table class="table-responsive">
-                <thead>
+    <div class="table-scroll table-shell">
+        <table class="table-responsive">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Go To</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for customer in customers %}
                     <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Go To</th>
+                        <td>{{customer.id}}</td>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.email}}</td>
+                        <td>
+                            <a class="btn btn-primary" href="">You need to add link</a>
+                            <a class="btn btn-danger" href="">You need to add link</a>
+                        </td>
                     </tr>
-                </thead>
-    
-                <tbody>
-                    {% for customer in customers %}
-                        <tr>
-                            <td>{{customer.id}}</td>
-                            <td>{{customer.name}}</td>
-                            <td>{{customer.email}}</td>
-                            <td>
-                                <a class="btn btn-primary" href="">You need to add link</a>
-                                <a class="btn btn-danger" href="">You need to add link</a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+                {% endfor %}
+            </tbody>
+        </table>
     </div>
 </div>
 {% endblock %}
