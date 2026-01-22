@@ -14,7 +14,7 @@ import models
 
 app = Flask(__name__)
 
-# Vi skippar .env i detta exempel.
+# Denna bör vara i .env istället
 # Se till att ni har denna databas skapad innan ni kör appen
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     "mysql+pymysql://user:user123@localhost:3306/delete_me"
