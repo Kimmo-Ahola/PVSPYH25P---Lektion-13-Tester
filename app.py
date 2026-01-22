@@ -3,15 +3,15 @@
 # https://flask-wtf.readthedocs.io/en/1.2.x/
 
 # pip install Flask-WTF
-
-
+import os
+from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, url_for
 from flask_migrate import Migrate
 from routes.customer_route import customers_bp
 from database import db
 from seeding import seed_database
 import models
-
+load_dotenv()
 app = Flask(__name__)
 
 # Denna bör vara i .env istället
@@ -19,6 +19,11 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = (
     "mysql+pymysql://user:user123@localhost:3306/delete_me"
 )
+app.config["SECRET_KEY"] = "this-is-not-secret-please-use-env"
+
+app.config["FLASK_DEBUG"] = os.getenv("FLASK_DEBUG", "0") == "1"
+app.config["WTF_CSRF_ENABLED"] = not app.config["FLASK_DEBUG"]
+
 db.init_app(app)
 migrate = Migrate(app, db)
 

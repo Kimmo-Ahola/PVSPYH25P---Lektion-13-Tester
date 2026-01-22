@@ -3,5 +3,112 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<div class="container">
+    <!-- {# This is a form without WTForms which is bad! 
+    <form class="form-light text-primary" action="{{url_for('customers.create')}}" method="post">
+        {# dessa skippas i formuläret: id, user_role #}
+        <label for="name">Namn</label>
+        <input type="text" id="name" name="name" placeholder="Fyll i namn här..." required>
+        
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" placeholder="Fyll i email här..." required>
+        
+        <label for="address">Adress</label>
+        <input type="text" id="address" name="address" placeholder="Fyll i adress här..." required>
+        
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="Fyll i city här..." required>
+        
+        <label for="date_of_birth">Date of Birth</label>
+        <input type="date" id="date_of_birth" name="date_of_birth" placeholder="Fyll i date of birth här..." required>
+        
+        <label for="telephone">Telephone</label>
+        <input type="text" id="telephone" name="telephone" placeholder="Fyll i telephone här..." >
+        
+        <label for="secondary_address">Secondary Address</label>
+        <input type="text" id="secondary_address" name="secondary_address" placeholder="Fyll i secondary address här..." >
+        
+        <label for="national_id">National Id</label>
+        <input type="text" id="national_id" name="national_id" placeholder="Fyll i national id här..." >
+        
+        <button class="btn btn-primary" type="submit">Skapa kund</button>
+    </form>
+    
+    #} -->
+{% from 'macros.html' import render_field %}
+    <form class="form-light" action="{{url_for('customers.create')}}" method="POST">
+        {{ form.hidden_tag() }}
 
+        {# 
+            {{render_field(form.name)}}
+        #}
+
+        {{form.name.label}}
+        {{form.name}}
+        {% if form.name.errors %}
+            {% for error in form.name.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+        {{form.email.label}}
+        {{form.email}}
+        {% if form.email.errors %}
+            {% for error in form.email.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+        {{form.address.label}}
+        {{form.address}}
+        {% if form.address.errors %}
+            {% for error in form.address.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+
+        {{form.city.label}}
+        {{form.city}}
+        {% if form.city.errors %}
+            {% for error in form.city.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+        {{form.date_of_birth.label}}
+        {{form.date_of_birth}}
+        {% if form.date_of_birth.errors %}
+            {% for error in form.date_of_birth.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+        {{form.telephone.label}}
+        {{form.telephone}}
+        {% if form.telephone.errors %}
+            {% for error in form.telephone.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+        {{form.secondary_address.label}}
+        {{form.secondary_address}}
+        {% if form.secondary_address.errors %}
+            {% for error in form.secondary_address.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+        {{form.national_id.label}}
+        {{form.national_id}}
+        {% if form.national_id.errors %}
+            {% for error in form.national_id.errors %}
+                <span style="color: red;">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+
+        {{form.submit(class='btn btn-primary')}}
+    </form>
+</div>
 {% endblock %}

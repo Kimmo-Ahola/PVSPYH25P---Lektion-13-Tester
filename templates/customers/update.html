@@ -1,0 +1,34 @@
+<div class="container">
+
+    <form class="form-light" method="post">
+        {{ form.hidden_tag() }}
+        
+        <span>
+            {{ form.name.label }} {{ form.name }}
+        </span>
+        <span>
+            {{ form.email.label }} {{ form.email }}
+        </span>
+        <span>
+            {{ form.address.label }} {{ form.address }}
+        </span>
+        <span>
+            {{ form.city.label }} {{ form.city }}
+        </span>
+        <span>
+            {{ form.date_of_birth.label }} {{ form.date_of_birth }}
+        </span>
+        <span>
+            {{ form.telephone.label }} {{ form.telephone }}
+        </span>
+        <span>
+            {{ form.secondary_address.label }} {{ form.secondary_address }}
+        </span>
+        <span>
+            {{ form.national_id.label }} {{ form.national_id }}
+        </span>
+        
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+    
+</div>
