@@ -45,6 +45,7 @@ def create():
             "secondary_address": form.secondary_address.data,
             "national_id": form.national_id.data,
         }
+
         try:
             new_customer = Customer(**form_data)
             db.session.add(new_customer)
